@@ -19,6 +19,11 @@
 
     v4l2-ctl --list-devices
 
+Предобученные веса для модели должны быть в формате .h5 и находиться рядом со скриптом в папке /weights
+
+    /weights/model_class_weights.h5
+    /weights/model_va_weights.h5
+
 Модель определяет 9 эмоции
 
     anger
