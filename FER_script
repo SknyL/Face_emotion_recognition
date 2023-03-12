@@ -29,7 +29,7 @@ capture.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'))
 faceDetector = mp.solutions.face_detection
 
 # Путь до предобученных весов
-weight_path = f'train_model/models/weights/model_{model_type}_weights.h5'
+weight_path = f'weights/model_{model_type}_weights.h5'
 # Создание модели с предобученными весами
 model = FER_model(path_model_weights=weight_path, type_model=model_type)
 
