@@ -22,7 +22,7 @@ class FER_va_model(FER_class_model):
         if path_va_model_weights is not None:
             self.va_model.load_weights(path_va_model_weights)
 
-        emotions_coord = {'happy': [.9, .2],
+        self.emotions_coord = {'happy': [.9, .2],
                           'surprise': [.4, .9],
                           'neutral': [0, 0],
                           'anger': [-.4, .8],
@@ -55,6 +55,6 @@ class FER_va_model(FER_class_model):
     
     def get_emotion(self, img):
         prediction = self.va_model.predict(img[None, ...], verbose=0)
-        emotion_number = int(emotions.query(prediction)[1])
-        emotion_name = list(emotions_coord.keys())[emotion_number]
-        return emotion_name
+        emotion_number = int(self.emotions.query(prediction)[1])
+        emotion_name = list(self.emotions_coord.keys())[emotion_number]
+        return emotion_name, prediction

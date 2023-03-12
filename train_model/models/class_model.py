@@ -80,5 +80,6 @@ class FER_class_model(tf.keras.Model):
         print(self.model.get_weights())
     
     def get_emotion(self, img):
-        import numpy as np
-        return str(self.emotion_dict[np.argmax(self.model.predict(img[None, ...], verbose=0))])
+        prediction = np.argmax(self.model.predict(img[None, ...], verbose=0))
+        emotion_name = str(self.emotion_dict[prediction])
+        return emotion_name, prediction
